@@ -12,6 +12,14 @@ body {
     font-size: 2em;
 }
 
+.section img {
+    max-width: 100%;
+    width: 500px;
+    margin: 50px;
+    border-radius: 20px;
+    border: 2px solid #ddd;
+}
+
 .slide {
     text-align: center;
     padding: 20px;

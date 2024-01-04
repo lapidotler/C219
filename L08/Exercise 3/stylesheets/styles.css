@@ -1,0 +1,219 @@
+/* Important */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Futura Md Bt', sans-serif;
+}
+
+.section {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Section 1 styles */
+#section1 {
+    padding: 40px;
+    text-align: center;
+    background-color: #a594dd;
+}
+
+.title {
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-family: 'Futura XBlk Bt', sans-serif;
+    font-weight: bold;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-photo {
+    height: 500px;
+    width: auto;
+    border-radius: 20px;
+    margin-right: 20px;
+    margin: 50px;
+}
+
+.info {
+    text-align: left;
+    max-width: 550px;
+}
+
+.name {
+    color: #000;
+}
+
+.job-title {
+    color: #222;
+}
+
+.age {
+    color: #444;
+}
+
+.description {
+    color: #111;
+    margin-top: 10px;
+}
+
+
+/* Section 2 styles */
+#section2 {
+    background-color: #c591e4;
+    padding: 50px;
+}
+
+#section2 .content2 h2 {
+    font-size: 32px;
+    margin: 10px;
+    margin-bottom: 20px;
+    text-decoration: underline;
+}
+
+.about-me, .skills-details, .skills-extra {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.skills-details, .skills-extra {
+    text-align: left;
+}
+
+
+
+
+/* Section 3 styles */
+#section3 {
+    background-color: #df8fcf;
+    padding: 50px;
+}
+
+#section3 .content h2 {
+    font-size: 32px;
+    margin: 10px;
+    margin-bottom: 20px;
+    text-decoration: underline;
+}
+
+
+/* Contact Form styles */
+.contact-form {
+    max-width: 500px;
+    width: 750px;
+    margin: 20px;
+    background-color: #eee;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.contact-form h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form .form-label {
+    margin-bottom: 5px;
+}
+
+.contact-form .form-control,
+.contact-form textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact-form button {
+    padding: 10px;
+    background-color: #df8fcf;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #7b68b8;
+}
+
+
+/* Contact Container styles */
+.contact-container {
+    text-align: center;
+}
+
+.social-icons {
+    list-style: none;
+    padding: 0;
+    margin: 50px;
+}
+
+.social-icons li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.social-icons li a {
+    color: #333;
+    font-size: 30px;
+    text-decoration: none;
+}
+
+.social-icons li a i {
+    margin-right: 10px;
+    transition: color 0.5s ease, transform 0.5s ease;
+}
+
+.social-icons li a i:hover {
+    color: #7b68b8;
+    transform: scale(1.2);
+}
+
+
+/* Nav Style */
+#fp-nav {
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #ddd;
+    border-radius: 20px;
+}
+
+/* Spacing Text */
+.name, .job-title {
+    font-family: 'Futura Hv Bt', sans-serif;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.age-title, .age {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.description {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.spacer {
+    padding: 5px;
+}
+
+.spacer-gap {
+    padding: 10px;
+}

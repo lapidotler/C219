@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.section {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-size: 2em;
+}
+
+.slide {
+    text-align: center;
+    padding: 20px;
+}
+
+
+/* Custom styles for Section 3 navigation */
+#fp-nav {
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #ddd;
+    border-radius: 20px;
+}
+
+.fp-prev {
+    left: 75px;
+}
+
+.fp-next {
+    right: 75px;
+}

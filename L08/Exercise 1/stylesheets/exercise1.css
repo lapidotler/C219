@@ -1,0 +1,74 @@
+body {
+    margin: 0;
+    font-family: 'Futura Md Bt', sans-serif;
+    background-color: #f0f0f0;
+}
+
+.about-me {
+    margin: 30px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.title {
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-family: 'Futura XBlk Bt', sans-serif;
+    font-weight: bold;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-photo {
+    height: 500px;
+    width: auto;
+    border-radius: 20px;
+    margin-right: 20px;
+    margin: 50px;
+}
+
+.info {
+    text-align: left;
+    max-width: 550px;
+}
+
+.name {
+    color: #333;
+}
+
+.job-title {
+    color: #555;
+}
+
+.age {
+    color: #777;
+}
+
+.description {
+    color: #444;
+    margin-top: 10px;
+}
+
+
+/* Spacing Text */
+.name, .job-title {
+    font-family: 'Futura Hv Bt', sans-serif;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.age-title, .age {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.description {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

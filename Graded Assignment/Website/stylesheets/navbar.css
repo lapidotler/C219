@@ -1,0 +1,51 @@
+/* Reset some default styles for lists and links */
+ul, li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Style the Bootstrap-based navigation bar */
+.navbar {
+    background-color: #83b6dd!important; /* Set your primary background color */
+    padding: 15px;
+    padding-left: 30px;
+    padding-right: 20px;
+}
+
+.navbar-brand img {
+    max-height: 200px;
+    transition: transform 0.3s, box-shadow 0.3s; /* Add transition for the logo scaling and box-shadow */
+}
+
+.navbar-brand img:hover {
+    transform: scale(1.1); /* Add scaling on hover */
+}
+
+.navbar-nav {
+    margin-left: auto;
+}
+
+.navbar-nav .nav-item {
+    margin-right: 20px; /* Adjust the spacing between links */
+}
+
+.nav-link {
+    font-weight: 600;
+    transition: color 0.3s;
+    font-size: 18px; /* Adjust the font size */
+    font-family: "Futura Hv BT";
+}
+
+/* Increase specificity to override Bootstrap styles */
+.navbar-nav .nav-item .nav-link:hover {
+    color: #86129B; /* Change the color on hover */
+}
+
+.navbar-nav .nav-item:hover {
+    color: #eee; /* Change the color on hover */
+}

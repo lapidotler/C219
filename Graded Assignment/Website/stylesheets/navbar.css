@@ -11,8 +11,8 @@ a {
 
 /* Style the Bootstrap-based navigation bar */
 .navbar {
-    background-color: #83b6dd!important; /* Set your primary background color */
-    padding: 15px;
+    background-color: rgb(104, 159, 201, 0.5)!important; /* Set your primary background color */
+    padding: 5px;
     padding-left: 30px;
     padding-right: 20px;
 }

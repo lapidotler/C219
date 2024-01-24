@@ -1,0 +1,114 @@
+/* Text Styling */
+.header {
+    text-align: center;
+    padding: 5px;
+}
+
+.text-xlarge {
+    font-family: 'Futura XBlk BT', sans-serif;
+    font-weight: 500;
+    font-size: 35px;
+}
+
+h2, .text-large {
+    font-family: 'Futura Hv BT', sans-serif;
+    font-weight: 300;
+    font-size: 30px;
+}
+
+.text-header {
+    font-family: 'Futura XBlk BT', sans-serif;
+    font-weight: 500;
+    font-size: 35px;
+}
+
+.text-xnarrow {
+    font-family: 'Futura BdCn BT', sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+}
+
+p {
+    font-family: 'Nunito Semibold', sans-serif;
+    font-size: 15px;
+}
+
+
+/* Other Texts */
+.text-header, .text-large, .text-xlarge {
+    font-weight: bolder;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 0;
+}
+
+.text-medium {
+    font-family: 'Futura Md BT', sans-serif;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.text-med {
+    font-family: 'Futura Md BT', sans-serif;
+    font-weight: normal;
+    margin-bottom: 0;
+    font-size: 16px;
+}
+
+.text-small {
+    font-size: 16px;
+    margin-bottom: 0;
+}
+
+/* Existing styles */
+
+/* Responsive Adjustments for Tablet (Portrait) */
+@media (max-width: 768px) {
+    /* Adjust font sizes for smaller screens */
+    .text-xlarge {
+        font-size: 30px!important;
+    }
+
+    h2, .text-large, .text-header {
+        font-size: 25px!important;
+    }
+
+    .text-xnarrow {
+        font-size: 20px!important;
+    }
+
+    .text-medium, .text-med, p, .button5 {
+        font-size: 14px!important;
+    }
+
+    .text-small {
+        font-size: 12px!important;
+    }
+}
+
+/* Responsive Adjustments for iPhone (Portrait) */
+@media (max-width: 375px) {
+    /* Adjust font sizes for iPhone-sized screens */
+    .text-xlarge {
+        font-size: 24px!important;
+    }
+
+    h2, .text-large, .portfolio-option, .text-header {
+        font-size: 20px!important;
+    }
+
+    .text-xnarrow {
+        font-size: 16px!important;
+    }
+
+    .text-medium, .text-med, p, .button5 {
+        font-size: 12px!important;
+    }
+
+    .text-small {
+        font-size: 10px!important;
+    }
+}

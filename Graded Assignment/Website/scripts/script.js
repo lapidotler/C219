@@ -120,11 +120,13 @@ const labelColor = {
             labels: {
                 color: "#555",
             }
-        }
+        },
+
     },
     scales: {
         y: {
             beginAtZero: true,
+            max: 20,
             ticks: {
                 color: "#555",
             }
@@ -141,17 +143,31 @@ const labelColor = {
     }
 };
 
-// Create a Chart.js chart for students
+// Create a Chart.js chart for books
 var ctx = document.getElementById('genre-chart').getContext('2d');
-var covidChart = new Chart(ctx, {
+var booksChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Dec 1', 'Dec 2', 'Dec 3', 'Dec 4', 'Dec 5', 'Dec 6', 'Dec 7', 'Dec 8', 'Dec 9', 'Dec 10', 'Dec 11', 'Dec 12', 'Dec 13', 'Dec 14'],
+        labels: ['Mystery', 'Fantasy', 'Romance', 'Science Fiction', 'Thriller', 'Non-Fiction'],
         datasets: [{
-            label: 'Number of Cases',
-            data: [1134, 1056, 986, 771, 756, 721, 654, 742, 689, 512, 455, 376, 244, 103],
-            backgroundColor: 'rgba(75, 192, 192, 0.5)',
-            borderColor: 'rgba(75, 192, 192, 1)',
+            label: 'Number of Books',
+            data: [15, 8, 18, 11, 6, 13],
+            backgroundColor: [
+                'rgba(75, 192, 192, 0.75)',
+                'rgba(255, 99, 132, 0.75)',
+                'rgba(54, 162, 235, 0.75)',
+                'rgba(105, 206, 86, 0.75)',
+                'rgba(153, 102, 255, 0.75)',
+                'rgba(255, 159, 64, 0.75)'
+            ],
+            borderColor: [
+                'rgba(75, 192, 192, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(105, 206, 86, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],            
             borderWidth: 1,
             hoverOffset: 10
         }]

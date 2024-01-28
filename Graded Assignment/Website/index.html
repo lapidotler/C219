@@ -69,20 +69,20 @@
                     <div class="container">
                         <div class="row">
                             <!-- Book items (repeat for each book) -->
-                            <div class="col-lg-3 col-md-4 mb-4">
+                            <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-bs-toggle="modal" data-bs-target="#alchemistModal">
                                 <div class="card">
                                     <img src="images/books/alchemist.jpg" class="card-img-top" alt="Book Cover">
                                     <div class="card-body">
                                         <h5 class="card-title text-medium">The Alchemist</h5>
                                         <p class="card-text"><i class="fa-solid fa-user"></i> Author: Paulo Coelho</p>
-                                        <div class="d-grid d-md-flex justify-content-md-end button">
+                                        <div class="d-grid d-md-flex justify-content-md-end">
                                             <button class="btn btn-outline-success">Reserve</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-lg-3 col-md-4 mb-4">
+                            <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-bs-toggle="modal" data-bs-target="#mockingbirdModal">
                                 <div class="card">
                                     <img src="images/books/mockingbird.jpg" class="card-img-top" alt="Book Cover">
                                     <div class="card-body">
@@ -95,7 +95,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-3 col-md-4 mb-4">
+                            <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-bs-toggle="modal" data-bs-target="#george1984Modal">
                                 <div class="card">
                                     <img src="images/books/1984.jpg" class="card-img-top" alt="Book Cover">
                                     <div class="card-body">
@@ -108,7 +108,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-3 col-md-4 mb-4">
+                            <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-bs-toggle="modal" data-bs-target="#greatGastbyModal">
                                 <div class="card">
                                     <img src="images/books/great-gatsby.jpg" class="card-img-top" alt="Book Cover">
                                     <div class="card-body">
@@ -121,7 +121,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-3 col-md-4 mb-4">
+                            <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-bs-toggle="modal" data-bs-target="#sorcererStoneModal">
                                 <div class="card">
                                     <img src="images/books/sorcerer-stone.jpg" class="card-img-top" alt="Book Cover">
                                     <div class="card-body">
@@ -134,7 +134,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-3 col-md-4 mb-4">
+                            <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-bs-toggle="modal" data-bs-target="#catcherRyeModal">
                                 <div class="card">
                                     <img src="images/books/catcher-rye.jpg" class="card-img-top" alt="Book Cover">
                                     <div class="card-body">
@@ -147,7 +147,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-3 col-md-4 mb-4">
+                            <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-bs-toggle="modal" data-bs-target="#pridePrejudiceModal">
                                 <div class="card">
                                     <img src="images/books/pride-prejudice.jpg" class="card-img-top" alt="Book Cover">
                                     <div class="card-body">
@@ -160,7 +160,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-3 col-md-4 mb-4">
+                            <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-bs-toggle="modal" data-bs-target="#hobbitModal">
                                 <div class="card">
                                     <img src="images/books/hobbit.jpg" class="card-img-top" alt="Book Cover">
                                     <div class="card-body">
@@ -184,9 +184,7 @@
                     <p class="text-medium">Check out our statistics based on the number of available books within LibraSphere</p>
                 </div>
 
-                <div id="chart-container">
-                    <canvas id="genre-chart"></canvas>
-                </div>
+                <canvas id="genre-chart"></canvas>
             </div>
 
             <!-- Section 3 -->
@@ -196,7 +194,7 @@
                     <p class="text-medium">Explore our collection of diverse books below</p>
                 </div>
 
-                <table id="inventory-table" class="display" width="100%">
+                <table id="inventory-table" class="display">
                     <tbody>
                         <tr>
                             <td>The Alchemist</td>
@@ -298,6 +296,192 @@
                         </tr>
                     </tbody>
                 </table>
+            </div>
+        </div>
+
+
+        <!-- Modals -->
+        <div class="modal fade" id="alchemistModal" tabindex="-1" aria-labelledby="alchemistModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-large">The Alchemist</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-medium">Author: Paulo Coelho</p>
+                        <p class="text-medium">Genre: Fiction</p>
+                        <p class="text-med">A philosophical novel about a young Andalusian shepherd named Santiago who sets out on a journey to discover his personal legend.</p>
+                        <p class="text-med">Along the way, he encounters various characters and learns profound lessons about destiny, spirituality, and the pursuit of one's dreams.</p>
+                        <p class="text-med">Santiago's journey becomes a metaphor for the universal quest for meaning and self-discovery.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="mockingbirdModal" tabindex="-1" aria-labelledby="mockingbirdModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-large">The Alchemist</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-medium">Author: Paulo Coelho</p>
+                        <p class="text-medium">Genre: Fiction</p>
+                        <p class="text-med">A philosophical novel about a young Andalusian shepherd named Santiago who sets out on a journey to discover his personal legend.</p>
+                        <p class="text-med">Along the way, he encounters various characters and learns profound lessons about destiny, spirituality, and the pursuit of one's dreams.</p>
+                        <p class="text-med">Santiago's journey becomes a metaphor for the universal quest for meaning and self-discovery.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="george1984Modal" tabindex="-1" aria-labelledby="george1984ModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-large">The Alchemist</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-medium">Author: Paulo Coelho</p>
+                        <p class="text-medium">Genre: Fiction</p>
+                        <p class="text-med">A philosophical novel about a young Andalusian shepherd named Santiago who sets out on a journey to discover his personal legend.</p>
+                        <p class="text-med">Along the way, he encounters various characters and learns profound lessons about destiny, spirituality, and the pursuit of one's dreams.</p>
+                        <p class="text-med">Santiago's journey becomes a metaphor for the universal quest for meaning and self-discovery.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="greatGastbyModal" tabindex="-1" aria-labelledby="greatGastbyModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-large">The Alchemist</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-medium">Author: Paulo Coelho</p>
+                        <p class="text-medium">Genre: Fiction</p>
+                        <p class="text-med">A philosophical novel about a young Andalusian shepherd named Santiago who sets out on a journey to discover his personal legend.</p>
+                        <p class="text-med">Along the way, he encounters various characters and learns profound lessons about destiny, spirituality, and the pursuit of one's dreams.</p>
+                        <p class="text-med">Santiago's journey becomes a metaphor for the universal quest for meaning and self-discovery.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="sorcererStoneModal" tabindex="-1" aria-labelledby="sorcererStoneModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-large">The Alchemist</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-medium">Author: Paulo Coelho</p>
+                        <p class="text-medium">Genre: Fiction</p>
+                        <p class="text-med">A philosophical novel about a young Andalusian shepherd named Santiago who sets out on a journey to discover his personal legend.</p>
+                        <p class="text-med">Along the way, he encounters various characters and learns profound lessons about destiny, spirituality, and the pursuit of one's dreams.</p>
+                        <p class="text-med">Santiago's journey becomes a metaphor for the universal quest for meaning and self-discovery.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="catcherRyeModal" tabindex="-1" aria-labelledby="catcherRyeModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-large">The Alchemist</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-medium">Author: Paulo Coelho</p>
+                        <p class="text-medium">Genre: Fiction</p>
+                        <p class="text-med">A philosophical novel about a young Andalusian shepherd named Santiago who sets out on a journey to discover his personal legend.</p>
+                        <p class="text-med">Along the way, he encounters various characters and learns profound lessons about destiny, spirituality, and the pursuit of one's dreams.</p>
+                        <p class="text-med">Santiago's journey becomes a metaphor for the universal quest for meaning and self-discovery.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="pridePrejudiceModal" tabindex="-1" aria-labelledby="pridePrejudiceModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-large">The Alchemist</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-medium">Author: Paulo Coelho</p>
+                        <p class="text-medium">Genre: Fiction</p>
+                        <p class="text-med">A philosophical novel about a young Andalusian shepherd named Santiago who sets out on a journey to discover his personal legend.</p>
+                        <p class="text-med">Along the way, he encounters various characters and learns profound lessons about destiny, spirituality, and the pursuit of one's dreams.</p>
+                        <p class="text-med">Santiago's journey becomes a metaphor for the universal quest for meaning and self-discovery.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="hobbitModal" tabindex="-1" aria-labelledby="hobbitModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-large">The Alchemist</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-medium">Author: Paulo Coelho</p>
+                        <p class="text-medium">Genre: Fiction</p>
+                        <p class="text-med">A philosophical novel about a young Andalusian shepherd named Santiago who sets out on a journey to discover his personal legend.</p>
+                        <p class="text-med">Along the way, he encounters various characters and learns profound lessons about destiny, spirituality, and the pursuit of one's dreams.</p>
+                        <p class="text-med">Santiago's journey becomes a metaphor for the universal quest for meaning and self-discovery.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
             </div>
         </div>
         

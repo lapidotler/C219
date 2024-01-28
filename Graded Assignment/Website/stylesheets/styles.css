@@ -50,6 +50,7 @@ body {
 
 .card:hover {
     transform: scale(1.05);
+    cursor: pointer;
 }
 
 .card img {
@@ -62,12 +63,6 @@ body {
     width: 100%;
     background-color: #FEB81A;
     border-radius: 0 0 10px 10px;
-}
-
-.card-body .button {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
 }
 
 .card-title {
@@ -95,6 +90,26 @@ body {
     border-color: #218838;
 }
 
+
+/* Modal Styles */
+.modal-header .close {
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: transparent;
+}
+
+.modal-body .text-medium {
+    margin: 0;
+    padding: 0;
+}
+
+.modal-body .text-med {
+    margin-top: 10px;
+}
+
+
+/* Inventory Section Styles */
 .card-inventory {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     height: 125px;
@@ -118,15 +133,6 @@ body {
     background-color: #cb9413;
 }
 
-#chart-container {
-    max-width: 1200px;
-    margin: 25px;
-}
-
-#genre-chart {
-    height: 100%;
-    width: 1000px;
-}
 
 
 /* Section 3 styles */
@@ -148,7 +154,13 @@ body {
 
 #inventory-table {
     padding-top: 20px;
-    width: 1100px;
+    width: 1000px;
+}
+
+@media (max-width: 1025px) {
+    #inventory-table {
+        width: 100%;
+    }
 }
 
 #inventory-table th {

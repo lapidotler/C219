@@ -97,20 +97,47 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// Initialize DataTable
+// Search function for Cards
 $(document).ready(function () {
-    $("#inventory-table").DataTable({
-        columns: [
-            { title: "Title" },
-            { title: "Author" },
-            { title: "Genre" },
-            { title: "Year" },
-            { title: "Type" }
-        ],
+    const books = [
+        { title: "The Alchemist", author: "Paulo Coelho" },
+        { title: "To Kill a Mockingbird", author: "Harper Lee" },
+        { title: "1984", author: "George Orwell" },
+        { title: "The Great Gatsby", author: "F. Scott Fitzgerald" },
+        { title: "Harry Potter and the Sorcerer's Stone", author: "J.K. Rowling" },
+        { title: "The Catcher in the Rye", author: "J.D. Salinger" },
+        { title: "Pride and Prejudice", author: "Jane Austen" },
+        { title: "The Hobbit", author: "J.R.R. Tolkien" }
+    ];
 
-        responsive: true,
-        ordering: false
-    });   
+    $('.ui.selection.dropdown')
+        .dropdown()
+    ;
+
+    // Initialize dropdown
+    // $('.ui.dropdown').dropdown({
+    //     onChange: function (value, text, $choice) {
+    //         // Update the hidden input with the selected value
+    //         $('input[name="searchType"]').val(value);
+
+    //         // Focus on the search input based on the selected value
+    //         if (value === 'title') {
+    //             $('.ui.search').search('setting', 'searchFields', ['title']);
+    //         } else if (value === 'author') {
+    //             $('.ui.search').search('setting', 'searchFields', ['author']);
+    //         }
+    //     }
+    // });
+
+    // Initialize search input
+    $('.ui.search').search({
+        source: books, // Use the sample books data as the data source
+        searchFields: ['title'], // Default to searching by title
+        onSelect: function (result, response) {
+            // Handle selection of a search result
+            console.log(result);
+        }
+    });
 });
 
 // Initialize Chart.js
@@ -174,4 +201,21 @@ var booksChart = new Chart(ctx, {
     },
 
     options: labelColor
+});
+
+
+// Initialize DataTable
+$(document).ready(function () {
+    $("#inventory-table").DataTable({
+        columns: [
+            { title: "Title" },
+            { title: "Author" },
+            { title: "Genre" },
+            { title: "Year" },
+            { title: "Type" }
+        ],
+
+        responsive: true,
+        ordering: false
+    });   
 });

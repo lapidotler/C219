@@ -11,6 +11,8 @@
         <link rel="stylesheet" href="https://unpkg.com/fullpage.js/dist/fullpage.min.css">
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
+
         <link rel="shortcut icon" type="image/x-icon" href="images/LibraSphere_Logo.png">
         
         <!-- Your Custom Stylesheet -->
@@ -55,11 +57,23 @@
                 <section class="search-section text-center">
                     <div class="container">
                         <h2 class="text-large">Search for Books</h2>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Enter book title or author" aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+
+                        <!-- Dropdown for selecting search type -->
+                        <div class="ui selection dropdown" id="searchDropdown">
+                            <input type="hidden" name="searchType">
+                            <i class="dropdown icon"></i>
+                            <div class="default text">Search by...</div>
+
+                            <div class="menu">
+                                <div class="item" data-value="title">Title</div>
+                                <div class="item" data-value="female">Author</div>
                             </div>
+                        </div>
+                
+                        <!-- Search input with Semantic UI search class -->
+                        <div class="ui search">
+                            <input id="searchInput" class="prompt" type="text" placeholder="Enter book title or author...">
+                            <div class="results"></div>
                         </div>
                     </div>
                 </section>
@@ -69,7 +83,7 @@
                     <div class="container">
                         <div class="row">
                             <!-- Book items (repeat for each book) -->
-                            <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-bs-toggle="modal" data-bs-target="#alchemistModal">
+                            <div class="col mb-4" data-bs-toggle="modal" data-bs-target="#alchemistModal">
                                 <div class="card">
                                     <img src="images/books/alchemist.jpg" class="card-img-top" alt="Book Cover">
                                     <div class="card-body">
@@ -82,7 +96,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-bs-toggle="modal" data-bs-target="#mockingbirdModal">
+                            <div class="col mb-4" data-bs-toggle="modal" data-bs-target="#mockingbirdModal">
                                 <div class="card">
                                     <img src="images/books/mockingbird.jpg" class="card-img-top" alt="Book Cover">
                                     <div class="card-body">
@@ -95,7 +109,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-bs-toggle="modal" data-bs-target="#george1984Modal">
+                            <div class="col mb-4" data-bs-toggle="modal" data-bs-target="#george1984Modal">
                                 <div class="card">
                                     <img src="images/books/1984.jpg" class="card-img-top" alt="Book Cover">
                                     <div class="card-body">
@@ -108,7 +122,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-bs-toggle="modal" data-bs-target="#greatGastbyModal">
+                            <div class="col mb-4" data-bs-toggle="modal" data-bs-target="#greatGastbyModal">
                                 <div class="card">
                                     <img src="images/books/great-gatsby.jpg" class="card-img-top" alt="Book Cover">
                                     <div class="card-body">
@@ -121,7 +135,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-bs-toggle="modal" data-bs-target="#sorcererStoneModal">
+                            <div class="col mb-4" data-bs-toggle="modal" data-bs-target="#sorcererStoneModal">
                                 <div class="card">
                                     <img src="images/books/sorcerer-stone.jpg" class="card-img-top" alt="Book Cover">
                                     <div class="card-body">
@@ -134,7 +148,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-bs-toggle="modal" data-bs-target="#catcherRyeModal">
+                            <div class="col mb-4" data-bs-toggle="modal" data-bs-target="#catcherRyeModal">
                                 <div class="card">
                                     <img src="images/books/catcher-rye.jpg" class="card-img-top" alt="Book Cover">
                                     <div class="card-body">
@@ -147,7 +161,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-bs-toggle="modal" data-bs-target="#pridePrejudiceModal">
+                            <div class="col mb-4" data-bs-toggle="modal" data-bs-target="#pridePrejudiceModal">
                                 <div class="card">
                                     <img src="images/books/pride-prejudice.jpg" class="card-img-top" alt="Book Cover">
                                     <div class="card-body">
@@ -160,7 +174,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-bs-toggle="modal" data-bs-target="#hobbitModal">
+                            <div class="col mb-4" data-bs-toggle="modal" data-bs-target="#hobbitModal">
                                 <div class="card">
                                     <img src="images/books/hobbit.jpg" class="card-img-top" alt="Book Cover">
                                     <div class="card-body">
@@ -314,8 +328,6 @@
                         <p class="text-medium">Author: Paulo Coelho</p>
                         <p class="text-medium">Genre: Fiction</p>
                         <p class="text-med">A philosophical novel about a young Andalusian shepherd named Santiago who sets out on a journey to discover his personal legend.</p>
-                        <p class="text-med">Along the way, he encounters various characters and learns profound lessons about destiny, spirituality, and the pursuit of one's dreams.</p>
-                        <p class="text-med">Santiago's journey becomes a metaphor for the universal quest for meaning and self-discovery.</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
@@ -328,17 +340,15 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title text-large">The Alchemist</h5>
+                        <h5 class="modal-title text-large">To Kill a Mockingbird</h5>
                         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p class="text-medium">Author: Paulo Coelho</p>
-                        <p class="text-medium">Genre: Fiction</p>
-                        <p class="text-med">A philosophical novel about a young Andalusian shepherd named Santiago who sets out on a journey to discover his personal legend.</p>
-                        <p class="text-med">Along the way, he encounters various characters and learns profound lessons about destiny, spirituality, and the pursuit of one's dreams.</p>
-                        <p class="text-med">Santiago's journey becomes a metaphor for the universal quest for meaning and self-discovery.</p>
+                        <p class="text-medium">Author: Harper Lee</p>
+                        <p class="text-medium">Genre: Fiction, Southern Gothic</p>
+                        <p class="text-med">Set in the American South during the 1930s, the novel explores racial injustice and moral growth through the eyes of a young girl named Scout Finch.</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
@@ -351,17 +361,15 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title text-large">The Alchemist</h5>
+                        <h5 class="modal-title text-large">1984</h5>
                         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p class="text-medium">Author: Paulo Coelho</p>
-                        <p class="text-medium">Genre: Fiction</p>
-                        <p class="text-med">A philosophical novel about a young Andalusian shepherd named Santiago who sets out on a journey to discover his personal legend.</p>
-                        <p class="text-med">Along the way, he encounters various characters and learns profound lessons about destiny, spirituality, and the pursuit of one's dreams.</p>
-                        <p class="text-med">Santiago's journey becomes a metaphor for the universal quest for meaning and self-discovery.</p>
+                        <p class="text-medium">Author: George Orwell</p>
+                        <p class="text-medium">Genre: Dystopian Fiction</p>
+                        <p class="text-med">A classic dystopian novel that explores the consequences of a totalitarian government, surveillance, and individual rebellion.</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
@@ -374,17 +382,15 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title text-large">The Alchemist</h5>
+                        <h5 class="modal-title text-large">The Great Gatsby</h5>
                         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p class="text-medium">Author: Paulo Coelho</p>
-                        <p class="text-medium">Genre: Fiction</p>
-                        <p class="text-med">A philosophical novel about a young Andalusian shepherd named Santiago who sets out on a journey to discover his personal legend.</p>
-                        <p class="text-med">Along the way, he encounters various characters and learns profound lessons about destiny, spirituality, and the pursuit of one's dreams.</p>
-                        <p class="text-med">Santiago's journey becomes a metaphor for the universal quest for meaning and self-discovery.</p>
+                        <p class="text-medium">Author: F. Scott Fitzgerald</p>
+                        <p class="text-medium">Genre: Fiction, Jazz Age</p>
+                        <p class="text-med">Set in the Roaring Twenties, the novel follows the life of Jay Gatsby and explores themes of wealth, love, and the American Dream.</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
@@ -397,17 +403,15 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title text-large">The Alchemist</h5>
+                        <h5 class="modal-title text-large">Harry Potter and the Sorcerer's Stone</h5>
                         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p class="text-medium">Author: Paulo Coelho</p>
-                        <p class="text-medium">Genre: Fiction</p>
-                        <p class="text-med">A philosophical novel about a young Andalusian shepherd named Santiago who sets out on a journey to discover his personal legend.</p>
-                        <p class="text-med">Along the way, he encounters various characters and learns profound lessons about destiny, spirituality, and the pursuit of one's dreams.</p>
-                        <p class="text-med">Santiago's journey becomes a metaphor for the universal quest for meaning and self-discovery.</p>
+                        <p class="text-medium">Author: J.K. Rowling</p>
+                        <p class="text-medium">Genre: Fantasy</p>
+                        <p class="text-med">The first book in the Harry Potter series follows the journey of a young wizard, Harry Potter, as he discovers his magical abilities and battles the dark wizard Voldemort.</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
@@ -420,17 +424,15 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title text-large">The Alchemist</h5>
+                        <h5 class="modal-title text-large">The Catcher in the Rye</h5>
                         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p class="text-medium">Author: Paulo Coelho</p>
+                        <p class="text-medium">Author: J.D. Salinger</p>
                         <p class="text-medium">Genre: Fiction</p>
-                        <p class="text-med">A philosophical novel about a young Andalusian shepherd named Santiago who sets out on a journey to discover his personal legend.</p>
-                        <p class="text-med">Along the way, he encounters various characters and learns profound lessons about destiny, spirituality, and the pursuit of one's dreams.</p>
-                        <p class="text-med">Santiago's journey becomes a metaphor for the universal quest for meaning and self-discovery.</p>
+                        <p class="text-med">Narrated by the teenage Holden Caulfield, the novel explores the challenges and disillusionment of adolescence in post-World War II America.</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
@@ -443,17 +445,15 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title text-large">The Alchemist</h5>
+                        <h5 class="modal-title text-large">Pride and Prejudice</h5>
                         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p class="text-medium">Author: Paulo Coelho</p>
-                        <p class="text-medium">Genre: Fiction</p>
-                        <p class="text-med">A philosophical novel about a young Andalusian shepherd named Santiago who sets out on a journey to discover his personal legend.</p>
-                        <p class="text-med">Along the way, he encounters various characters and learns profound lessons about destiny, spirituality, and the pursuit of one's dreams.</p>
-                        <p class="text-med">Santiago's journey becomes a metaphor for the universal quest for meaning and self-discovery.</p>
+                        <p class="text-medium">Author: Jane Austen</p>
+                        <p class="text-medium">Genre: Romance, Classic</p>
+                        <p class="text-med">A timeless novel that satirizes the societal norms of early 19th-century England and tells the love story of Elizabeth Bennet and Mr. Darcy.</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
@@ -472,11 +472,9 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p class="text-medium">Author: Paulo Coelho</p>
-                        <p class="text-medium">Genre: Fiction</p>
-                        <p class="text-med">A philosophical novel about a young Andalusian shepherd named Santiago who sets out on a journey to discover his personal legend.</p>
-                        <p class="text-med">Along the way, he encounters various characters and learns profound lessons about destiny, spirituality, and the pursuit of one's dreams.</p>
-                        <p class="text-med">Santiago's journey becomes a metaphor for the universal quest for meaning and self-discovery.</p>
+                        <p class="text-medium">Author: J.R.R. Tolkien</p>
+                        <p class="text-medium">Genre: Fantasy</p>
+                        <p class="text-med">A classic fantasy novel that follows the journey of Bilbo Baggins, a hobbit who is reluctantly thrust into an epic quest to reclaim treasure guarded by the dragon Smaug.</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
@@ -501,6 +499,9 @@
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="https://unpkg.com/@popperjs/core@2"></script>
         <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Add the CDN link for the Semantic UI script here -->
+        <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.js"></script>
 
         <!-- Your Custom JavaScript -->
         <script src="scripts/script.js"></script>

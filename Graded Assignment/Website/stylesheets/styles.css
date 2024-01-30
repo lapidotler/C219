@@ -19,7 +19,18 @@ body {
     background-color: #83b6dd;
 }
 
+
 /* Search Section Styles */
+.search-section {
+    padding: 25px 0;
+    padding-top: 0;
+}
+
+.search.icon i {
+    font-size: 18px;
+    color: #000000;
+}
+
 .search-section h2 {
     margin-bottom: 20px;
 }
@@ -42,7 +53,7 @@ body {
 }
 
 .ui.search .results {
-    max-height: 300px;
+    max-height: 275px;
     overflow-y: auto;
     border: 1px solid #cccccc; /* Adjust border color */
 }
@@ -56,22 +67,20 @@ body {
     justify-content: center;
 }
 
-.ui.search>.results {
-    position: relative;
-}
-
 .ui.search .result:hover {
     background-color: #eeeeee; /* Adjust hover background color */
 }
 
 
 /* Book Display Section Styles */
-.book-display-section {
-    padding: 25px 0;
+.col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .card {
-    transition: transform 0.2s;
+    transition: transform 0.3s;
     justify-content: center;
     align-items: center;
     border: 0;
@@ -82,19 +91,23 @@ body {
 
 .card:hover {
     transform: scale(1.05);
-    cursor: pointer;
+}
+
+.tippy-tooltip {
+    margin: 10px;
 }
 
 .card img {
     max-width: 275px;
-    height: 240px;
+    height: 300px;
     border-radius: 10px 10px 0 0;
+    cursor: pointer;
 }
 
 .card-body {
     width: 100%;
     background-color: #FEB81A;
-    border-radius: 0 0 10px 10px;
+    border-radius: 0 0 10px 10px
 }
 
 .card-title {
@@ -112,7 +125,6 @@ body {
 }
 
 .btn-success {
-    margin-top: 30px;
     background-color: #28a745;
     border-color: #28a745;
 }
@@ -131,13 +143,21 @@ body {
     background-color: transparent;
 }
 
-.modal-header {
+.modal-books .modal-header {
     background-color: #FEB81A;
     border-bottom: none;
 }
 
-.modal-content {
+.modal-books .modal-content {
     background-color: #edd08c;
+}
+
+.modal-header {
+    background-color: #edd08c;
+}
+
+.modal-content {
+    background-color: #f6ead0;
 }
 
 .modal-footer {
@@ -174,6 +194,7 @@ body {
     border-radius: 0 0 25px 25px;
 }
 
+
 /* Section 2 styles */
 #section2 {
     background-color: #f0cb75;
@@ -184,10 +205,10 @@ body {
 }
 
 
-
 /* Section 3 styles */
 #section3 {
     background-color: #db86ea;
+    padding-bottom: 170px;
 }
 
 #section3 .card-inventory {
@@ -204,10 +225,16 @@ body {
 
 #inventory-table {
     padding-top: 20px;
-    width: 1000px;
+    width: 1100px;
 }
 
-@media (max-width: 1025px) {
+@media (max-width: 1125px) {
+    #inventory-table {
+        width: 900px;
+    }
+}
+
+@media (max-width: 925px) {
     #inventory-table {
         width: 100%;
     }

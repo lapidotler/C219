@@ -9,6 +9,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // Anime.js targets for Section 3
     const section3Elements = document.querySelectorAll('#section3 > *');
 
+    // Set initial styles for the footer
+    const footer = document.querySelector('.footer');
+    footer.style.display = 'none';
+
     anime({
         targets: [section2Elements, section3Elements],
         translateY: [-30, 0],
@@ -29,6 +33,8 @@ document.addEventListener("DOMContentLoaded", function () {
         
         afterLoad: function (origin, destination, direction) {
             if (destination.index === 0) {
+                footer.style.display = 'none';
+
                 // Anime.js animation for Section 1
                 anime({
                     targets: section1Elements,
@@ -39,6 +45,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     delay: anime.stagger(200),
                 });
             } else if (destination.index === 1) {
+                footer.style.display = 'none';
+
                 // Anime.js animation for Section 2
                 anime({
                     targets: section2Elements,
@@ -49,6 +57,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     delay: anime.stagger(200),
                 });
             } else if (destination.index === 2) {
+                footer.style.display = 'block';
+                
                 // Anime.js animation for Section 3
                 anime({
                     targets: section3Elements,
@@ -63,6 +73,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         onLeave: function (origin, destination, direction) {
             if (origin.index === 0) {
+                footer.style.display = 'none';
+
                 // Reset opacity for Section 1 elements
                 anime({
                     targets: section1Elements,
@@ -73,6 +85,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     delay: anime.stagger(200),
                 });
             } else if (origin.index === 1) {
+                footer.style.display = 'none';
+
                 // Reset opacity for Section 2 elements
                 anime({
                     targets: section2Elements,
@@ -83,6 +97,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     delay: anime.stagger(200),
                 });
             } else if (origin.index === 2) {
+                footer.style.display = 'none';
+
                 // Reset opacity for Section 3 elements
                 anime({
                     targets: section3Elements,
@@ -97,47 +113,108 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// Search function for Cards
+// Search Functionality
 $(document).ready(function () {
     const books = [
-        { title: "The Alchemist", author: "Paulo Coelho" },
-        { title: "To Kill a Mockingbird", author: "Harper Lee" },
-        { title: "1984", author: "George Orwell" },
-        { title: "The Great Gatsby", author: "F. Scott Fitzgerald" },
-        { title: "Harry Potter and the Sorcerer's Stone", author: "J.K. Rowling" },
-        { title: "The Catcher in the Rye", author: "J.D. Salinger" },
-        { title: "Pride and Prejudice", author: "Jane Austen" },
-        { title: "The Hobbit", author: "J.R.R. Tolkien" }
+        { title: "The Alchemist" },
+        { title: "To Kill a Mockingbird" },
+        { title: "1984" },
+        { title: "The Great Gatsby" },
+        { title: "Harry Potter and the Sorcerer's Stone" },
+        { title: "The Catcher in the Rye" },
+        { title: "Pride and Prejudice" },
+        { title: "The Hobbit" }
     ];
-
-    $('.ui.selection.dropdown')
-        .dropdown()
-    ;
-
-    // Initialize dropdown
-    // $('.ui.dropdown').dropdown({
-    //     onChange: function (value, text, $choice) {
-    //         // Update the hidden input with the selected value
-    //         $('input[name="searchType"]').val(value);
-
-    //         // Focus on the search input based on the selected value
-    //         if (value === 'title') {
-    //             $('.ui.search').search('setting', 'searchFields', ['title']);
-    //         } else if (value === 'author') {
-    //             $('.ui.search').search('setting', 'searchFields', ['author']);
-    //         }
-    //     }
-    // });
 
     // Initialize search input
     $('.ui.search').search({
-        source: books, // Use the sample books data as the data source
-        searchFields: ['title'], // Default to searching by title
+        source: books,
+        minCharacters: 0,
+        maxResults: 10,
+        searchFields: ['title', 'author'],
         onSelect: function (result, response) {
             // Handle selection of a search result
             console.log(result);
+            filterCards(result.title);
+        },
+        onSearchQuery: function (query) {
+            // Handle search query input
+            filterCards(query);
         }
     });
+
+    // Function to filter cards based on the search query
+    function filterCards(query) {
+        let matchingCards = 0;
+
+        $('.col').each(function () {
+            const cardTitle = $(this).find('.card .card-title').text().trim().toLowerCase();
+            if (cardTitle.includes(query.toLowerCase())) {
+                $(this).show();
+                $(this).css("display", "flex");
+                matchingCards++;
+            } else {
+                $(this).hide();
+                $(this).css("display", "none");
+            }
+        });
+
+        // Adjust margin if there are no matching cards
+        const searchSection = $('.search-section');
+        if (matchingCards <= 1) {
+            searchSection.css("margin-bottom", "50px");
+            searchSection.css("margin-right", "40px");
+            searchSection.css("margin-left", "20px");
+        } else {
+            // Reset margin if there are matching cards
+            searchSection.css("margin-bottom", "0");
+            searchSection.css("margin-right", "0");
+        }
+    }
+});
+
+// Reserve Books
+function toggleReservation(button) {
+    // Check the current reservation state
+    const isReserved = button.classList.contains("btn-success");
+
+    // Get the modal and message elements
+    const modal = document.getElementById('reservationModal');
+    const messageElement = document.getElementById('reservationMessage');
+
+    // Get book details from the button's data attributes
+    const bookTitle = button.dataset.title;
+    const bookAuthor = button.dataset.author;
+
+    if (isReserved) {
+        // Unreserve: Change text to "Reserve" and button style to btn-outline-success
+        button.textContent = "Reserve";
+        button.classList.remove("btn-success");
+        button.classList.add("btn-outline-success");
+
+        // Set the unreserve message
+        messageElement.textContent = `${bookTitle} is unreserved.`;
+    } else {
+        // Reserve: Change text to "Reserved" and button style to btn-success
+        button.textContent = "Reserved";
+        button.classList.remove("btn-outline-success");
+        button.classList.add("btn-success");
+
+        // Set the reserve message
+        messageElement.textContent = `${bookTitle} by ${bookAuthor} is reserved. Thank you!`;
+    }
+
+    // Show the modal
+    $(modal).modal('show');
+}
+
+// Tippy for Cards
+tippy('.card', {
+    content: "Wanna learn more? Click on the card image!",
+    placement: "bottom",
+    arrow: true,
+    animation: 'scale',
+    offset: [0, 25],
 });
 
 // Initialize Chart.js
@@ -203,7 +280,6 @@ var booksChart = new Chart(ctx, {
     options: labelColor
 });
 
-
 // Initialize DataTable
 $(document).ready(function () {
     $("#inventory-table").DataTable({
@@ -216,6 +292,11 @@ $(document).ready(function () {
         ],
 
         responsive: true,
-        ordering: false
-    });   
+        ordering: false,
+        pageLength: 7,
+
+        createdRow: function (row, data, dataIndex) {
+            $('td:eq(0)', row).css('font-weight', 'bold');
+        }
+    });
 });

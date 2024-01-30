@@ -1,0 +1,50 @@
+/* Footer Styles */
+.footer {
+    background-color: rgba(205, 69, 229, 0.75);
+    width: 100%;
+    padding: 15px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.contact-info {
+    text-align: center;
+}
+
+.social-media {
+    text-align: right;
+}
+
+.footer {
+    color: #fff;
+}
+
+.footer h3 {
+    color: #d3ebfc;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer ul li {
+    margin: 5px 0;
+}
+
+.footer a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.footer a:hover {
+    color: #0f436b;
+}

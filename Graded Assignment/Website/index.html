@@ -5,19 +5,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>School Library Web App</title>
 
+        <!-- Add the CDN links for the Font Awesome and Bootstrap stylesheets here -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
 
+        <!-- Add the CDN link for the DataTables and FullPage.js stylesheets here -->
         <link rel="stylesheet" href="https://unpkg.com/fullpage.js/dist/fullpage.min.css">
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
 
+        <!-- Add the CDN link for the Semantic UI stylesheet here -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
+
+        <!-- Add the CDN link for the Tippy.js stylesheet here -->
+        <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/scale.css"/>
 
         <link rel="shortcut icon" type="image/x-icon" href="images/LibraSphere_Logo.png">
         
         <!-- Your Custom Stylesheet -->
         <link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
         <link rel="stylesheet" type="text/css" href="stylesheets/navbar.css">
+        <link rel="stylesheet" type="text/css" href="stylesheets/footer.css">
         <link rel="stylesheet" type="text/css" href="stylesheets/text.css">
     </head>
     <body>
@@ -52,136 +59,124 @@
                         </ul>
                     </div>
                 </nav>
-                
-                <!-- Search Section -->
-                <section class="search-section text-center">
-                    <div class="container">
-                        <h2 class="text-large">Search for Books</h2>
 
-                        <!-- Dropdown for selecting search type -->
-                        <div class="ui selection dropdown" id="searchDropdown">
-                            <input type="hidden" name="searchType">
-                            <i class="dropdown icon"></i>
-                            <div class="default text">Search by...</div>
-
-                            <div class="menu">
-                                <div class="item" data-value="title">Title</div>
-                                <div class="item" data-value="female">Author</div>
+                <!-- Search & Book Display Section -->
+                <section class="book-display-section">
+                    <section class="search-section text-center">
+                        <div class="container">
+                            <h2 class="text-large">Search for Books</h2>
+                    
+                            <!-- Search input with Semantic UI search class -->
+                            <div class="ui icon input search">
+                                <i class="search icon"></i>
+                                <input id="searchInput" class="prompt" type="text" placeholder="Enter book title...">
+                                <div class="results"></div>
                             </div>
                         </div>
-                
-                        <!-- Search input with Semantic UI search class -->
-                        <div class="ui search">
-                            <input id="searchInput" class="prompt" type="text" placeholder="Enter book title or author...">
-                            <div class="results"></div>
-                        </div>
-                    </div>
-                </section>
+                    </section>
 
-                <!-- Book Display Section -->
-                <section class="book-display-section">
                     <div class="container">
                         <div class="row">
                             <!-- Book items (repeat for each book) -->
-                            <div class="col mb-4" data-bs-toggle="modal" data-bs-target="#alchemistModal">
+                            <div class="col mb-4">
                                 <div class="card">
-                                    <img src="images/books/alchemist.jpg" class="card-img-top" alt="Book Cover">
+                                    <img src="images/books/alchemist.jpg" class="card-img-top" alt="Book Cover" data-bs-toggle="modal" data-bs-target="#alchemistModal">
                                     <div class="card-body">
                                         <h5 class="card-title text-medium">The Alchemist</h5>
                                         <p class="card-text"><i class="fa-solid fa-user"></i> Author: Paulo Coelho</p>
-                                        <div class="d-grid d-md-flex justify-content-md-end">
-                                            <button class="btn btn-outline-success">Reserve</button>
+                                        <div class="d-grid d-md-flex text-end justify-content-md-end">
+                                            <button class="btn btn-outline-success" onclick="toggleReservation(this)" data-bs-toggle="modal" data-bs-target="#reservationModal" data-title="The Alchemist" data-author="Paulo Coelho">Reserve</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col mb-4" data-bs-toggle="modal" data-bs-target="#mockingbirdModal">
+                            <div class="col mb-4">
                                 <div class="card">
-                                    <img src="images/books/mockingbird.jpg" class="card-img-top" alt="Book Cover">
+                                    <img src="images/books/mockingbird.jpg" class="card-img-top" alt="Book Cover" data-bs-toggle="modal" data-bs-target="#mockingbirdModal">
                                     <div class="card-body">
                                         <h5 class="card-title text-medium">To Kill a Mockingbird</h5>
                                         <p class="card-text"><i class="fa-solid fa-user"></i> Author: Harper Lee</p>
-                                        <div class="d-grid d-md-flex justify-content-md-end">
-                                            <button class="btn btn-outline-success">Reserve</button>
+                                        <div class="d-grid d-md-flex text-end justify-content-md-end">
+                                            <button class="btn btn-outline-success" onclick="toggleReservation(this)" data-bs-toggle="modal" data-bs-target="#reservationModal" data-title="To Kill a Mockingbird" data-author="Harper Lee">Reserve</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col mb-4" data-bs-toggle="modal" data-bs-target="#george1984Modal">
+                            <div class="col mb-4">
                                 <div class="card">
-                                    <img src="images/books/1984.jpg" class="card-img-top" alt="Book Cover">
+                                    <img src="images/books/1984.jpg" class="card-img-top" alt="Book Cover" data-bs-toggle="modal" data-bs-target="#george1984Modal">
                                     <div class="card-body">
                                         <h5 class="card-title text-medium">1984</h5>
                                         <p class="card-text"><i class="fa-solid fa-user"></i> Author: George Orwell</p>
-                                        <div class="d-grid d-md-flex justify-content-md-end">
-                                            <button class="btn btn-outline-success">Reserve</button>
+                                        <div class="d-grid d-md-flex text-end justify-content-md-end">
+                                            <button class="btn btn-outline-success" onclick="toggleReservation(this)" data-bs-toggle="modal" data-bs-target="#reservationModal" data-title="1984" data-author="George Orwell">Reserve</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col mb-4" data-bs-toggle="modal" data-bs-target="#greatGastbyModal">
+                            <div class="col mb-4">
                                 <div class="card">
-                                    <img src="images/books/great-gatsby.jpg" class="card-img-top" alt="Book Cover">
+                                    <img src="images/books/great-gatsby.jpg" class="card-img-top" alt="Book Cover" data-bs-toggle="modal" data-bs-target="#greatGastbyModal">
                                     <div class="card-body">
                                         <h5 class="card-title text-medium">The Great Gatsby</h5>
                                         <p class="card-text"><i class="fa-solid fa-user"></i> Author: F. Scott Fitzgerald</p>
                                         <div class="d-grid d-md-flex justify-content-md-end">
-                                            <button class="btn btn-outline-success">Reserve</button>
+                                            <button class="btn btn-outline-success" onclick="toggleReservation(this)" data-bs-toggle="modal" data-bs-target="#reservationModal" data-title="The Great Gatsby" data-author="F. Scott Fitzgerald">Reserve</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col mb-4" data-bs-toggle="modal" data-bs-target="#sorcererStoneModal">
+                            <div class="col mb-4">
                                 <div class="card">
-                                    <img src="images/books/sorcerer-stone.jpg" class="card-img-top" alt="Book Cover">
+                                    <img src="images/books/sorcerer-stone.jpg" class="card-img-top" alt="Book Cover" data-bs-toggle="modal" data-bs-target="#sorcererStoneModal">
                                     <div class="card-body">
-                                        <h5 class="card-title text-medium">Harry Potter and the Sorcerer's Stone</h5>
+                                        <h5 class="card-title text-medium">Harry Potter and The Sorcerer's Stone</h5>
                                         <p class="card-text"><i class="fa-solid fa-user"></i> Author: J.K. Rowling</p>
                                         <div class="d-grid d-md-flex justify-content-md-end">
-                                            <button class="btn btn-outline-success">Reserve</button>
+                                            <button class="btn btn-outline-success" onclick="toggleReservation(this)" data-bs-toggle="modal" data-bs-target="#reservationModal" data-title="Harry Potter and The Sorcerer's Stone" data-author="J.K. Rowling">Reserve</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col mb-4" data-bs-toggle="modal" data-bs-target="#catcherRyeModal">
+                            <div class="col mb-4">
                                 <div class="card">
-                                    <img src="images/books/catcher-rye.jpg" class="card-img-top" alt="Book Cover">
+                                    <img src="images/books/catcher-rye.jpg" class="card-img-top" alt="Book Cover" data-bs-toggle="modal" data-bs-target="#catcherRyeModal">
                                     <div class="card-body">
-                                        <h5 class="card-title text-medium">The Catcher in the Rye</h5>
+                                        <h5 class="card-title text-medium">The Catcher in The Rye</h5>
                                         <p class="card-text"><i class="fa-solid fa-user"></i> Author: J.D. Salinger</p>
                                         <div class="d-grid d-md-flex justify-content-md-end">
-                                            <button class="btn btn-outline-success">Reserve</button>
+                                            <button class="btn btn-outline-success" onclick="toggleReservation(this)" data-bs-toggle="modal" data-bs-target="#reservationModal" data-title="The Catcher in The Rye" data-author="J.D. Salinger">Reserve</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col mb-4" data-bs-toggle="modal" data-bs-target="#pridePrejudiceModal">
+                            <div class="col mb-4">
                                 <div class="card">
-                                    <img src="images/books/pride-prejudice.jpg" class="card-img-top" alt="Book Cover">
+                                    <img src="images/books/pride-prejudice.jpg" class="card-img-top" alt="Book Cover" data-bs-toggle="modal" data-bs-target="#pridePrejudiceModal">
                                     <div class="card-body">
                                         <h5 class="card-title text-medium">Pride and Prejudice</h5>
                                         <p class="card-text"><i class="fa-solid fa-user"></i> Author: Jane Austen</p>
                                         <div class="d-grid d-md-flex justify-content-md-end">
-                                            <button class="btn btn-outline-success">Reserve</button>
+                                            <button class="btn btn-outline-success" onclick="toggleReservation(this)" data-bs-toggle="modal" data-bs-target="#reservationModal" data-title="Pride and Prejudice" data-author="Jane Austen">Reserve</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col mb-4" data-bs-toggle="modal" data-bs-target="#hobbitModal">
+                            <div class="col mb-4">
                                 <div class="card">
-                                    <img src="images/books/hobbit.jpg" class="card-img-top" alt="Book Cover">
+                                    <img src="images/books/hobbit.jpg" class="card-img-top" alt="Book Cover" data-bs-toggle="modal" data-bs-target="#hobbitModal">
                                     <div class="card-body">
                                         <h5 class="card-title text-medium">The Hobbit</h5>
                                         <p class="card-text"><i class="fa-solid fa-user"></i> Author: J.R.R. Tolkien</p>
                                         <div class="d-grid d-md-flex justify-content-md-end">
-                                            <button class="btn btn-outline-success">Reserve</button>
+                                            <button class="btn btn-outline-success" onclick="toggleReservation(this)" data-bs-toggle="modal" data-bs-target="#reservationModal" data-title="The Hobbit" data-author="J.R.R. Tolkien">Reserve</button>
                                         </div>
                                     </div>
                                 </div>
@@ -313,175 +308,232 @@
             </div>
         </div>
 
+        <!-- Footer Section -->
+        <footer class="footer">
+            <div class="footer-content">
+                <!-- Site Map -->
+                <div class="site-map">
+                    <h3 class="text-medium">Site Pages</h3>
+                    <ul class="text-med">
+                        <li class="nav-item">
+                            <a href="#home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#stats">Stats</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#inventory">Inventory</a>
+                        </li>
+                    </ul>
+                </div>
 
-        <!-- Modals -->
-        <div class="modal fade" id="alchemistModal" tabindex="-1" aria-labelledby="alchemistModalLabel" aria-hidden="true">
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <h3 class="text-medium">Contact Us</h3>
+                    <p class="text-med">Email: librasphere@gmail.com</p>
+                    <p class="text-med">Phone: +65 8123 7654</p>
+                </div>
+
+                <!-- Social Media Links -->
+                <div class="social-media">
+                    <h3 class="text-medium">Follow Us</h3>
+                    <ul class="text-med">
+                        <li><a href="#" target="_blank"><i class="fa-brands fa-facebook"></i> | Facebook</a></li>
+                        <li><a href="#" target="_blank"><i class="fa-brands fa-twitter"></i> / <i class="fa-brands fa-x-twitter"></i> | Twitter/X</a></li>
+                        <li><a href="#" target="_blank"><i class="fa-brands fa-instagram"></i> | Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Modal for Reservation of books -->
+        <div class="modal fade" id="reservationModal" tabindex="-1" role="dialog" aria-labelledby="reservationModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title text-large">The Alchemist</h5>
+                        <h5 class="modal-title text-large" id="reservationModalLabel">Reservation Status</h5>
                         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
-                        <p class="text-medium">Author: Paulo Coelho</p>
-                        <p class="text-medium">Genre: Fiction</p>
-                        <p class="text-med">A philosophical novel about a young Andalusian shepherd named Santiago who sets out on a journey to discover his personal legend.</p>
-                    </div>
+                    <div class="modal-body text-med" id="reservationMessage"></div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="modal fade" id="mockingbirdModal" tabindex="-1" aria-labelledby="mockingbirdModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title text-large">To Kill a Mockingbird</h5>
-                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p class="text-medium">Author: Harper Lee</p>
-                        <p class="text-medium">Genre: Fiction, Southern Gothic</p>
-                        <p class="text-med">Set in the American South during the 1930s, the novel explores racial injustice and moral growth through the eyes of a young girl named Scout Finch.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+        <!-- Modals (Book Information) -->
+        <section class="modal-books">
+            <div class="modal fade" id="alchemistModal" tabindex="-1" aria-labelledby="alchemistModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-xnarrow">The Alchemist</h5>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="text-medium">Author: Paulo Coelho</p>
+                            <p class="text-medium">Genre: Fiction</p>
+                            <p class="text-med">A philosophical novel about a young Andalusian shepherd named Santiago who sets out on a journey to discover his personal legend.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="modal fade" id="george1984Modal" tabindex="-1" aria-labelledby="george1984ModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title text-large">1984</h5>
-                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p class="text-medium">Author: George Orwell</p>
-                        <p class="text-medium">Genre: Dystopian Fiction</p>
-                        <p class="text-med">A classic dystopian novel that explores the consequences of a totalitarian government, surveillance, and individual rebellion.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+            <div class="modal fade" id="mockingbirdModal" tabindex="-1" aria-labelledby="mockingbirdModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-xnarrow">To Kill a Mockingbird</h5>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="text-medium">Author: Harper Lee</p>
+                            <p class="text-medium">Genre: Fiction, Southern Gothic</p>
+                            <p class="text-med">Set in the American South during the 1930s, the novel explores racial injustice and moral growth through the eyes of a young girl named Scout Finch.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="modal fade" id="greatGastbyModal" tabindex="-1" aria-labelledby="greatGastbyModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title text-large">The Great Gatsby</h5>
-                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p class="text-medium">Author: F. Scott Fitzgerald</p>
-                        <p class="text-medium">Genre: Fiction, Jazz Age</p>
-                        <p class="text-med">Set in the Roaring Twenties, the novel follows the life of Jay Gatsby and explores themes of wealth, love, and the American Dream.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+            <div class="modal fade" id="george1984Modal" tabindex="-1" aria-labelledby="george1984ModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-xnarrow">1984</h5>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="text-medium">Author: George Orwell</p>
+                            <p class="text-medium">Genre: Dystopian Fiction</p>
+                            <p class="text-med">A classic dystopian novel that explores the consequences of a totalitarian government, surveillance, and individual rebellion.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="modal fade" id="sorcererStoneModal" tabindex="-1" aria-labelledby="sorcererStoneModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title text-large">Harry Potter and the Sorcerer's Stone</h5>
-                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p class="text-medium">Author: J.K. Rowling</p>
-                        <p class="text-medium">Genre: Fantasy</p>
-                        <p class="text-med">The first book in the Harry Potter series follows the journey of a young wizard, Harry Potter, as he discovers his magical abilities and battles the dark wizard Voldemort.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+            <div class="modal fade" id="greatGastbyModal" tabindex="-1" aria-labelledby="greatGastbyModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-xnarrow">The Great Gatsby</h5>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="text-medium">Author: F. Scott Fitzgerald</p>
+                            <p class="text-medium">Genre: Fiction, Jazz Age</p>
+                            <p class="text-med">Set in the Roaring Twenties, the novel follows the life of Jay Gatsby and explores themes of wealth, love, and the American Dream.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="modal fade" id="catcherRyeModal" tabindex="-1" aria-labelledby="catcherRyeModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title text-large">The Catcher in the Rye</h5>
-                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p class="text-medium">Author: J.D. Salinger</p>
-                        <p class="text-medium">Genre: Fiction</p>
-                        <p class="text-med">Narrated by the teenage Holden Caulfield, the novel explores the challenges and disillusionment of adolescence in post-World War II America.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+            <div class="modal fade" id="sorcererStoneModal" tabindex="-1" aria-labelledby="sorcererStoneModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-xnarrow">Harry Potter and The Sorcerer's Stone</h5>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="text-medium">Author: J.K. Rowling</p>
+                            <p class="text-medium">Genre: Fantasy</p>
+                            <p class="text-med">The first book in the Harry Potter series follows the journey of a young wizard, Harry Potter, as he discovers his magical abilities and battles the dark wizard Voldemort.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="modal fade" id="pridePrejudiceModal" tabindex="-1" aria-labelledby="pridePrejudiceModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title text-large">Pride and Prejudice</h5>
-                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p class="text-medium">Author: Jane Austen</p>
-                        <p class="text-medium">Genre: Romance, Classic</p>
-                        <p class="text-med">A timeless novel that satirizes the societal norms of early 19th-century England and tells the love story of Elizabeth Bennet and Mr. Darcy.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+            <div class="modal fade" id="catcherRyeModal" tabindex="-1" aria-labelledby="catcherRyeModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-xnarrow">The Catcher in The Rye</h5>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="text-medium">Author: J.D. Salinger</p>
+                            <p class="text-medium">Genre: Fiction</p>
+                            <p class="text-med">Narrated by the teenage Holden Caulfield, the novel explores the challenges and disillusionment of adolescence in post-World War II America.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="modal fade" id="hobbitModal" tabindex="-1" aria-labelledby="hobbitModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title text-large">The Alchemist</h5>
-                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p class="text-medium">Author: J.R.R. Tolkien</p>
-                        <p class="text-medium">Genre: Fantasy</p>
-                        <p class="text-med">A classic fantasy novel that follows the journey of Bilbo Baggins, a hobbit who is reluctantly thrust into an epic quest to reclaim treasure guarded by the dragon Smaug.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+            <div class="modal fade" id="pridePrejudiceModal" tabindex="-1" aria-labelledby="pridePrejudiceModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-xnarrow">Pride and Prejudice</h5>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="text-medium">Author: Jane Austen</p>
+                            <p class="text-medium">Genre: Romance, Classic</p>
+                            <p class="text-med">A timeless novel that satirizes the societal norms of early 19th-century England and tells the love story of Elizabeth Bennet and Mr. Darcy.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+
+            <div class="modal fade" id="hobbitModal" tabindex="-1" aria-labelledby="hobbitModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-xnarrow">The Alchemist</h5>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="text-medium">Author: J.R.R. Tolkien</p>
+                            <p class="text-medium">Genre: Fantasy</p>
+                            <p class="text-med">A classic fantasy novel that follows the journey of Bilbo Baggins, a hobbit who is reluctantly thrust into an epic quest to reclaim treasure guarded by the dragon Smaug.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         
         <!-- Add the CDN link for the Bootstrap and jQuery scripts here -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
